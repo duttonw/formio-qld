@@ -1,4 +1,4 @@
-import { PdfDownload } from "../components/PdfDownload";
+import { PdfDownload } from "../helpers/FormioLoader/PdfDownload";
 
 export default (props) => {
   const { form, formConfirmation } = props;
