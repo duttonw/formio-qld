@@ -6,6 +6,7 @@ import templates from "../templates/index.dev";
 import { getComponents } from "../utils/getComponents";
 
 global.window.scrollTo = jest.fn();
+global.scrollTo = jest.fn();
 global.premium = {};
 
 Formio.use({
