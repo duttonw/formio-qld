@@ -1,0 +1,15 @@
+/*! ../../utils */
+
+/*! ./OpenStreetMapLocation.stories */
+
+/*! @storybook/addon-essentials/docs/mdx-react-shim */
+
+/*! @storybook/blocks */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*!************************************************************************!*\
+  !*** ./src/components/openStreetMapLocation/OpenStreetMapLocation.mdx ***!
+  \************************************************************************/
