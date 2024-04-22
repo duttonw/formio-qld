@@ -70,9 +70,9 @@ jobs:
 
       - name: What changed
         run: |
-         export outdated="`npm outdated`"
+         export outdated="`npm outdated --parsable `"
           
-         echo '###outdated' >> $GITHUB_STEP_SUMMARY
+         echo '### Outdated' >> $GITHUB_STEP_SUMMARY
          echo "$outdated" >> $GITHUB_STEP_SUMMARY
          echo '' >> $GITHUB_STEP_SUMMARY
          
