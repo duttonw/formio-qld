@@ -76,16 +76,15 @@ jobs:
          echo "$outdated" >> $GITHUB_STEP_SUMMARY
          echo '' >> $GITHUB_STEP_SUMMARY
          
-         export version="`echo $outdated|grep ^storybook|awk '{ print $4 }'`"    
-         
+        
          echo 'OUTDATED_LIST<<EOF' >> $GITHUB_OUTPUT
          echo "$outdated" >> $GITHUB_OUTPUT
          echo 'EOF' >> $GITHUB_OUTPUT
         
          echo "OUTDATED_VERSION<<EOF" >> $GITHUB_OUTPUT
-         echo "$version" >> $GITHUB_OUTPUT
+         echo $outdated|grep ^storybook|awk '{ print $4 }' >> $GITHUB_OUTPUT
          echo 'EOF' >> $GITHUB_OUTPUT
-         echo "OUTDATED_VERSION=$version"
+         echo $outdated|grep ^storybook|awk '{ print $4 }'
         id: what-changed-data
 
       - name: Update package.json
@@ -107,5 +106,5 @@ jobs:
           commit-message: "update storybook js libraries \r\n ${{ steps.what-changed-data.outputs.OUTDATED_LIST }}"
           title: "update storybook ${{ steps.what-changed-data.outputs.OUTDATED_VERSION }}"
           body: "update storybook js premium libraries ${{ steps.what-changed-data.outputs.OUTDATED_LIST }}"
-          branch: update-storybook-libraries
+          branch: "update-storybook-libraries-${{ steps.what-changed-data.outputs.OUTDATED_VERSION }}"
           base: main
